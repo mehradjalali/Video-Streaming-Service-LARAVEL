@@ -16,8 +16,9 @@
     <div id="wrapper">
         <nav class="navbar header-top fixed-top navbar-expand-lg  navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="#">LOGO</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+                <!-- <a class="navbar-brand" href="#">LOGO</a> -->
+                <img src="{{asset('assets/img/logo.png')}}" width="35" height="35"></img>
+                <button class=" navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
                     aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -25,26 +26,15 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            @guest
-                            @if (Route::has('register'))
+                            @if (Auth()->user())
                             <li class="nav-item">
-                                <a href="{{ route('register') }}" class="nav-link">Register</a>
-                            </li>
-                            @endif
-                            @if (Route::has('login'))
-                            <li class="nav-item">
-                                <a href="{{ route('login') }}" class="nav-link">Login</a>
-                            </li>
-                            @endif
-                            @else
-                            <li class="nav-item">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
                                     {{ Auth::user()->name }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
@@ -53,7 +43,14 @@
                                     @csrf
                                 </form>
                             </li>
-                            @endguest
+                            @else
+                            <li class="nav-item">
+                                <a href="{{ route('register') }}" class="nav-link">Register</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('login') }}" class="nav-link">Login</a>
+                            </li>
+                            @endif
                         </ul>
                     </div>
 
