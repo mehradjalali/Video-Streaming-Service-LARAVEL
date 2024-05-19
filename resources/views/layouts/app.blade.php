@@ -21,6 +21,8 @@
 
 .modal-content iframe {
     margin: 0 auto;
+    height: 300px;
+    width: 300px;
     display: block;
 }
 

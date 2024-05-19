@@ -52,7 +52,7 @@
                                                         data-dismiss="modal" aria-hidden="true">&times;</button>
                                                 </div>
                                                 <div class="modal-body flex">
-                                                    <iframe id="cartoonVideo" width="365" height="365"
+                                                    <iframe id="cartoonVideo"
                                                         src="{{asset('assets/videos/'.$video->filename.'')}}"
                                                         frameborder="1" allowfullscreen></iframe>
                                                 </div>
