@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row" style="margin-top: 50px;">
+<br><br><br><br>
+<div class="row">
     <div class="col">
         <div class="card">
             <div class="card-body">
@@ -25,17 +26,22 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
+                            <th scope="col">video</th>
                             <th scope="col">name</th>
-                            <th scope="col">length</th>
+                            <th scope="col">filename</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($videos as $video)
                         <tr>
                             <th scope="row">{{$video->id}}</th>
+                            <td>
+                                <video controls preload="auto" muted loop width="150" height="150" controls>
+                                    <source src="{{asset('assets/videos/'.$video->filename.'')}}" type="video/mp4">
+                                </video>
+                            </td>
                             <td>{{$video->name}}</td>
-                            <td>{{$video->length}}</td>
-
+                            <td>{{$video->filename}}</td>
                         </tr>
                         @endforeach
                     </tbody>
