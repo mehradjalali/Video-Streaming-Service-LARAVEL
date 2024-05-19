@@ -27,7 +27,7 @@
                                 <label>Video</label>
 
                                 <input type="file" name="video" id="form2Example1" class="form-control"
-                                    placeholder="video" />
+                                    placeholder="video" accept="video/mp4,video/x-m4v,video/*" />
                             </div>
 
 

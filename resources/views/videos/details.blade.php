@@ -2,7 +2,7 @@
 
 @section('content')
 <br><br><br><br>
-<div class="container-fluid" >
+<div class="container-fluid">
     <div class="row">
         <div class="col">
             <div class="card">
@@ -30,8 +30,8 @@
                         <div class="form-outline mb-4 mt-4">
                             <label>Video</label>
 
-                            <input type="file" name="video" id="form2Example1" class="form-control"
-                                placeholder="video" />
+                            <input type="file" name="video" id="form2Example1" class="form-control" placeholder="video"
+                                accept="video/mp4,video/x-m4v,video/*" />
                         </div>
                         <br>
                         <button type="submit" name="submit" class="btn btn-primary mb-4 text-center">update</button>
