@@ -11,6 +11,52 @@
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+.bs-example {
+    margin: 20px;
+}
+
+.modal-content iframe {
+    margin: 0 auto;
+    display: block;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus {
+    background-color: #FFFF00;
+    color: #FFC0CB;
+}
+</style>
+<script>
+$(document).ready(function() {
+    /* Get iframe src attribute value i.e. YouTube video url
+    and store it in a variable */
+    var url = $("#cartoonVideo").attr('src');
+
+    /* Assign empty url value to the iframe src attribute when
+    modal hide, which stop the video playing */
+    $("#myModal").on('hide.bs.modal', function() {
+        $("#cartoonVideo").attr('src', '');
+    });
+
+    /* Assign the initially stored url back to the iframe src
+    attribute when modal is displayed again */
+    $("#myModal").on('show.bs.modal', function() {
+        $("#cartoonVideo").attr('src', url);
+    });
+});
+</script>
 
 <Body background="{{asset('assets/img/bg.jpg')}}">
 
@@ -29,8 +75,8 @@
                             @if (Auth::check())
                             <ul class="navbar-nav side-nav">
                                 <li class="nav-item">
-                                    <a href="{{route('home')}}" class="nav-link text-white" style="margin-left: 20px;"
-                                        href="#">Home
+                                    <a href="{{route('home')}}" class="nav-link text-white"
+                                        style="margin-left: 20px;">Home
                                         <span class="sr-only">(current)</span>
                                     </a>
                                 </li>
@@ -45,7 +91,7 @@
 
                             </ul>
                             @endif
-                            <ul class="navbar-nav ml-md-auto d-md-flex">
+                            <ul class="navbar-nav ml-md-auto d-md-flex float-right">
                                 @if (Auth::check())
                                 <li class="nav-item">
                                     <a class="nav-link" href="#" id="navbarDropdown" role="button"

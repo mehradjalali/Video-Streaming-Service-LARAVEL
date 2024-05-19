@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+
 <br><br><br><br>
-<div class="row">
+<div style="text-align: center;">
     <div class="col">
         <div class="card">
             <div class="card-body">
@@ -18,30 +19,54 @@
                     </div>
                     @endif
                 </div>
-                <h5 class="card-title mb-4 d-inline">Videos</h5>
-                <a href="{{route('video.upload')}}" class="btn btn-primary mb-4 text-center float-right">Upload
+                <a href="{{route('video.upload')}}" class="btn btn-primary mb-4 text-center">Upload
                     Videos</a>
                 @if ($videos->count())
-                <table class="table">
+                <table align="center" style="width: 100%" class="table">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">video</th>
+                            <th scope="col" style="width:70%">video</th>
                             <th scope="col">name</th>
-                            <th scope="col">filename</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($videos as $video)
                         <tr>
                             <th scope="row">{{$video->id}}</th>
-                            <td>
+                            <td height="100%" width="100%" valign="middle" align="center">
                                 <video controls preload="auto" muted loop width="150" height="150" controls>
                                     <source src="{{asset('assets/videos/'.$video->filename.'')}}" type="video/mp4">
                                 </video>
+                                <div class="actions_link">
+                                    <a href="#myModal{{$video->id}}" class="btn btn-warning" data-toggle="modal">Show
+                                        Video</a>
+
+                                    <!-- Modal HTML -->
+
+                                    <div id="myModal{{$video->id}}" class="modal fade">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="btn btn-lg btn-danger"
+                                                        data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                </div>
+                                                <div class="modal-body flex">
+                                                    <iframe id="cartoonVideo" width="365" height="365"
+                                                        src="{{asset('assets/videos/'.$video->filename.'')}}"
+                                                        frameborder="1" allowfullscreen></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a> | </a>
+                                    <a class="btn btn-primary" href="{{route('video.details', $video->id)}}">Edit</a>
+                                    <a> | </a>
+                                    <a class="btn btn-danger" onclick="return confirm('Are you sure?')"
+                                        href=" {{route('video.delete', $video->id)}}">Delete</a>
+                                </div>
                             </td>
                             <td>{{$video->name}}</td>
-                            <td>{{$video->filename}}</td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -56,5 +81,6 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection
