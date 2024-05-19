@@ -19,22 +19,23 @@
                     </div>
                     @endif
                 </div>
-                <a href="{{route('video.upload')}}" class="btn btn-primary mb-4 text-center">Upload
+                <a href="{{route('video.upload')}}" class="btn btn-primary btn-lg mb-4 text-center">Upload
                     Videos</a>
                 @if ($videos->count())
                 <table align="center" style="width: 100%" class="table">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">video</th>
-                            <th scope="col">name</th>
+                            <th scope="col">Video</th>
+                            <th scope="col">Name</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($videos as $video)
                         <tr>
                             <th scope="row">{{$video->id}}</th>
-                            <td height="100%" width="100%" valign="middle" align="center">
+                            <td height=auto width="100%" valign="middle" align="center">
+                                <br>
                                 <video controls preload="auto" muted loop width="15%" height=auto controls>
                                     <source src="{{asset('assets/videos/'.$video->filename.'')}}" type="video/mp4">
                                 </video>
@@ -43,7 +44,6 @@
                                         Video</a>
 
                                     <!-- Modal HTML -->
-
                                     <div id="myModal{{$video->id}}" class="modal fade">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -66,9 +66,9 @@
                                         href=" {{route('video.delete', $video->id)}}">Delete</a>
                                 </div>
                             </td>
-                            <td>{{$video->name}}</td>
-                        </tr>
-                        @endforeach
+                            <th scope="row"><a class="btn btn-lg btn-info"
+                                    href="{{route('video.details', $video->id)}}">{{$video->name}}</a></th </tr>
+                            @endforeach
                     </tbody>
                 </table>
                 @else
