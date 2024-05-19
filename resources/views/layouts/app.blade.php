@@ -94,8 +94,8 @@ $(document).ready(function() {
                             <ul class="navbar-nav ml-md-auto d-md-flex float-right">
                                 @if (Auth::check())
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#" id="navbarDropdown" role="button"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <a class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
                                         {{ Auth::user()->name }}
                                     </a>
                                 </li>
