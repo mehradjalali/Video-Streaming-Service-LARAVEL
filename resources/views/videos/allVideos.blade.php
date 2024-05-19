@@ -11,9 +11,14 @@
                         <p>{!! \Session::get('success') !!}</p>
                     </div>
                     @endif
+                    @if (\Session::has('fail'))
+                    <div class="alert alert-danger">
+                        <p>{!! \Session::get('fail') !!}</p>
+                    </div>
+                    @endif
                 </div>
                 <h5 class="card-title mb-4 d-inline">Videos</h5>
-                <a href="#" class="btn btn-primary mb-4 text-center float-right">Upload
+                <a href="{{route('video.upload')}}" class="btn btn-primary mb-4 text-center float-right">Upload
                     Videos</a>
                 @if ($videos->count())
                 <table class="table">
