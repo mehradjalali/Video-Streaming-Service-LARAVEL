@@ -16,8 +16,7 @@
     <div id="wrapper">
         <nav class="navbar header-top fixed-top navbar-expand-lg  navbar-dark bg-dark">
             <div class="container">
-                <!-- <a class="navbar-brand" href="#">LOGO</a> -->
-                <img src="{{asset('assets/img/logo.png')}}" width="35" height="35"></img>
+                <img src="{{asset('assets/img/logo.png')}}" width=" 35" height="35"></img>
                 <button class=" navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
                     aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -25,8 +24,24 @@
 
                 <div class="collapse navbar-collapse" id="navbarText">
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            @if (Auth()->user())
+                        @if (Auth::check())
+                        <ul class="navbar-nav side-nav">
+                            <li class="nav-item">
+                                <a class="nav-link text-white" style="margin-left: 20px;" href="#">Home
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" style="margin-left: 20px;">Videos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" style="margin-left: 20px;">Upload</a>
+                            </li>
+
+                        </ul>
+                        @endif
+                        <ul class="navbar-nav ml-md-auto d-md-flex">
+                            @if (Auth::check())
                             <li class="nav-item">
                                 <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
