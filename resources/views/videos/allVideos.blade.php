@@ -26,7 +26,7 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col" style="width:70%">video</th>
+                            <th scope="col">video</th>
                             <th scope="col">name</th>
                         </tr>
                     </thead>
@@ -35,7 +35,7 @@
                         <tr>
                             <th scope="row">{{$video->id}}</th>
                             <td height="100%" width="100%" valign="middle" align="center">
-                                <video controls preload="auto" muted loop width="150" height="150" controls>
+                                <video controls preload="auto" muted loop width="15%" height=auto controls>
                                     <source src="{{asset('assets/videos/'.$video->filename.'')}}" type="video/mp4">
                                 </video>
                                 <div class="actions_link">
