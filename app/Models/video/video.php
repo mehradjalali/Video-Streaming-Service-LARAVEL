@@ -12,8 +12,7 @@ class video extends Model {
     protected $fillable = [
         "name",
         "user_id",
-        "filename",
-        "thumbnail",
+        "URL",
     ];
     public $timestamps = true;
 }

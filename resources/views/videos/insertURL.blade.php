@@ -18,22 +18,20 @@
                         <form method="POST" action="{{route('video.store')}}" enctype="multipart/form-data">
                             <!-- Email input -->
                             @csrf
-                            <a class="card-title mb-5 d-inline">Upload Video</a>
                             <div class="form-outline mb-4 mt-4">
                                 <input type="text" name="name" id="form2Example1" class="form-control"
                                     placeholder="name" />
                             </div>
                             <div class="form-outline mb-4 mt-4">
-                                <label>Video</label>
-
-                                <input type="file" name="video" id="form2Example1" class="form-control"
-                                    placeholder="video" accept="video/mp4,video/x-m4v,video/*" />
+                                <label>Video URL</label>
+                                <br>
+                                <input type="url" id="url" name="url">
                             </div>
 
 
                             <!-- Submit button -->
-                            <button type="submit" name="submit"
-                                class="btn btn-primary  mb-4 text-center">create</button>
+                            <button type="submit" name="submit" class="btn btn-primary  mb-4 text-center">Insert
+                                URL</button>
 
 
                         </form>

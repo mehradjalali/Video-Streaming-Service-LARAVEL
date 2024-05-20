@@ -19,8 +19,7 @@
                     </div>
                     @endif
                 </div>
-                <a href="{{route('video.upload')}}" class="btn btn-primary btn-lg mb-4 text-center">Upload
-                    Videos</a>
+                <a href="{{route('video.upload')}}" class="btn btn-primary btn-lg mb-4 text-center">Insert URL</a>
                 @if ($videos->count())
                 <table align="center" style="width: 100%" class="table">
                     <thead>

@@ -19,30 +19,20 @@ class VideoController extends Controller {
         return view('videos.allVideos', compact('videos'));
     }
 
-    public function uploadVideo() {
-        return view('videos.uploadVideo');
+    public function insertURL() {
+        return view('videos.insertURL');
     }
 
     public function storeVideo(Request $request) {
         if (!isset(Auth::user()->id)) {
             return view('home');
         }
-        $destinationPath = 'assets/videos';
-        if (!isset($request->video)) {
-            return Redirect::route('video.upload')->with(['fail' => 'you must select a file']);
-        }
-        $video = $request->video;
-        $filename = $video->getClientOriginalName();
-        $videoMoved = $video->move($destinationPath, $filename);
-        if (!$videoMoved) {
-            return Redirect::route('videos.all')->with(['fail' => 'video upload failed']);
-        }
         $storedVideo = Video::create([
             "name" => $request->name,
-            "filename" => $filename,
+            "URL" => $request->url,
             "user_id" => Auth::user()->id,
         ]);
-        return Redirect::route('videos.all')->with(['success' => 'video uploaded successfully']);
+        return Redirect::route('videos.all')->with(['success' => 'video inserted successfully']);
     }
 
     public function deleteVideo($id) {

@@ -24,14 +24,16 @@
                         </div>
                         <div class="form-outline mb-4 mt-4">
                             <video controls preload="auto" muted loop width="400" height="400" controls>
-                                <source src="{{asset('assets/videos/'.$video->filename.'')}}" type="video/mp4">
+                                <source src="{{$video->url}}" type="video/mp4">
                             </video>
                         </div>
                         <div class="form-outline mb-4 mt-4">
                             <label>Video</label>
-
-                            <input type="file" name="video" id="form2Example1" class="form-control" placeholder="video"
-                                accept="video/mp4,video/x-m4v,video/*" />
+                            <div class="form-outline mb-4 mt-4">
+                                <label>Video URL</label>
+                                <br>
+                                <input type="url" id="url" name="url">
+                            </div>
                         </div>
                         <br>
                         <button type="submit" name="submit" class="btn btn-primary mb-4 text-center">update</button>
