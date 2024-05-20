@@ -87,8 +87,8 @@ $(document).ready(function() {
                                         style="margin-left: 20px;">Videos</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{route('video.upload')}}"
-                                        style="margin-left: 20px;">Upload</a>
+                                    <a class="nav-link" href="{{route('video.insert')}}"
+                                        style="margin-left: 20px;">Insert</a>
                                 </li>
 
                             </ul>

@@ -58,16 +58,9 @@ class VideoController extends Controller {
             return view('home');
         }
         $video = Video::find($id);
-        $file = $video->filename;
-        if (isset($request->video)) {
-            $destinationPath = 'assets/videos';
-            $file = $request->video->getClientOriginalName();
-            $request->video->move(public_path($destinationPath), $file);
-        }
-
         $video->update([
             "name" => $request->name,
-            "filename" => $file,
+            "URL" => $request->url,
         ]);
         if ($video) {
             return Redirect::route('video.details', $id)->with(['update' => 'video edited successfully']);
